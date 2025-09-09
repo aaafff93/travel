@@ -1,6 +1,6 @@
 import 'leaflet/dist/leaflet.css';
-import './App.css'
 import {MapContainer, Marker, TileLayer} from "react-leaflet";
+import './index.css'
 
 function App() {
 
