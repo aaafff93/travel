@@ -1,0 +1,10 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100vh;
+}
