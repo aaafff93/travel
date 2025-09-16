@@ -1,30 +1,40 @@
 import 'leaflet/dist/leaflet.css';
-import {MapContainer, Marker, TileLayer} from "react-leaflet";
 import './index.css'
+import LeafletMap from "./components/LeafletMap.tsx";
+import LeafletMarker from "./components/LeafletMarker.tsx";
+import type {IMarkerDTO} from "./shared/types.ts";
+
+const markersData: IMarkerDTO[] = [
+    {
+        id: 1,
+        position: [56.155518, 47.180890]
+    },
+    {
+        id: 2,
+        position: [56.155488, 47.192287]
+    },
+];
+
+function buildMarkers(data: IMarkerDTO[]) {
+    return data.map((marker) => (
+        <LeafletMarker
+            key={marker.id}
+            position={marker.position}>
+        </LeafletMarker>
+    ))
+}
 
 function App() {
 
+    const markers = buildMarkers(markersData);
+
     return (
         <>
-            <MapContainer
-                center={[56.155554, 47.192863]}
-                zoom={13}>
-                <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-                />
-                [
-                <Marker
-                    position={[56.155518, 47.180890]}
-                />
-                <Marker
-                    position={[56.155554, 47.192863]}
-                />
-                <Marker
-                    position={[56.155632, 47.198775]}
-                />
-                ]
-            </MapContainer>
+            <LeafletMap
+                zoom={13}
+                center={[56.155554, 47.192863]}>
+                {markers}
+            </LeafletMap>
         </>
     )
 }
