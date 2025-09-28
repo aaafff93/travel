@@ -1,5 +1,5 @@
 import {MapContainer, TileLayer} from "react-leaflet";
-import type {ILeafletMapProps} from "../shared/types.ts";
+import type {ILeafletMapProps} from "../shared/types/types.ts";
 import LeafletEvents from "./LeafletEvents.tsx";
 
 const LeafletMap = ({

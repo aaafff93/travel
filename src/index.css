@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+@theme {
+    --color-*: initial;
+    --color-success: green;
+    --color-danger: red;
+}
+
 .leaflet-container {
     width: 100%;
     height: 100vh;
